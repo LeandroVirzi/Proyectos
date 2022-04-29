@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from '@emotion/styled';
 
 const Label = styled.label`
@@ -17,16 +18,27 @@ const Select = styled.select`
 `
 
 const useSelectMonedas = (label, opciones) => {
-    const SelectMonedas = () => (
-        // retorna un label
+    const [state, setState] = useState('');
 
+    useEffect(() => {
+        const consultarAPI = async ()=> {
+            const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=20&tsym=USD"
+            const respuesta = await fetch(url);
+            const resultado = await respuesta.json();
+            console.log(resultado.Data);
+        }
+        consultarAPI();
+    }, [])
+
+    const SelectMonedas = () => (
         // map() para iterar entre varias opciones
         <>
             <Label>{label}</Label>
-            <Select>
+            <Select
+                value={state}
+                onChange={ e => setState( e.target.value )}
+            >
                 <option value="">Seleccione</option>
-                
-                
                 {opciones.map(  opcion => (
                     <option
                         key={opcion.id}
@@ -37,7 +49,8 @@ const useSelectMonedas = (label, opciones) => {
         </>
     )
     // para que lo podamos retornar desde otro lugar
-    return [ SelectMonedas ]
+    return [ state, SelectMonedas ]
+    // state nos va a retornar el estado
 }
  
 export default useSelectMonedas;
