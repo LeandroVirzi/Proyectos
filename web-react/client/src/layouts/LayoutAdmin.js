@@ -1,12 +1,12 @@
 import React from "react";
+
+// Admin Pages
 import { Route } from 'react-router-dom';
 import { Layout } from "antd";
 
 import './Layoutadmin.scss';
 
 export default function LayoutAdmin(props){
-    //console.log(props);
-
     const { routes } = props;
     const { Header, Content, Footer } = Layout;
 
@@ -28,7 +28,6 @@ export default function LayoutAdmin(props){
 
 
 function LoadRouters ({ routes }) {
-    console.log(routes);
 
     return routes.map((route, index) => (
         <Route
