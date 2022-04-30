@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import styled from '@emotion/styled';
 
@@ -19,16 +19,6 @@ const Select = styled.select`
 
 const useSelectMonedas = (label, opciones) => {
     const [state, setState] = useState('');
-
-    useEffect(() => {
-        const consultarAPI = async ()=> {
-            const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=20&tsym=USD"
-            const respuesta = await fetch(url);
-            const resultado = await respuesta.json();
-            console.log(resultado.Data);
-        }
-        consultarAPI();
-    }, [])
 
     const SelectMonedas = () => (
         // map() para iterar entre varias opciones
