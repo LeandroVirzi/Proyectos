@@ -1,0 +1,23 @@
+#img_perfil {
+    width: 280px;
+    height: auto;
+    border-radius: 50%;
+}
+
+#proyectos {
+    
+    color: white;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(67, 67, 67, 0.526), rgba(0, 0, 0, 0.526)), url("../img/Fondos/codigoTres.png");  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(67, 67, 67, 0.518), rgba(0, 0, 0, 0.413)), url("../img/Fondos/codigoTres.png"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#logo_github {
+    border-radius: 90%;
+}
+
+.sombreado {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
